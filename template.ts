@@ -10,7 +10,7 @@ export default () => {
     <!--app-head-->
   </head>
   <body>
-    <div id="root" class="base-grid"><!--app-html--></div>
+    <div id="root" class="base-grid main-layout"><!--app-html--></div>
     <script type="module" src="client/main.tsx"></script>
   </body>
 </html>`;

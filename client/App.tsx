@@ -1,13 +1,17 @@
 import Layout from './layouts/layout';
-import styled from '@emotion/styled';
+import { css } from '@emotion/react';
 
 function App() {
-  const MyDiv = styled('div')({ fontSize: 12, color: 'red' });
-
   return (
     <Layout>
-      <h1>ok</h1>
-      <MyDiv>Text</MyDiv>
+      <h1
+        css={css`
+          font-size: 20rem;
+          color: red;
+        `}
+      >
+        ok
+      </h1>
     </Layout>
   );
 }

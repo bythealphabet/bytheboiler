@@ -4,6 +4,8 @@ export function GlobalStyles() {
   return (
     <Global
       styles={css`
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
         *,
         *::before,
         *::after {
@@ -12,12 +14,17 @@ export function GlobalStyles() {
           padding: 0;
         }
 
+        :root {
+          --headerHeight: 6rem;
+          --footerHeight: 6rem;
+        }
+
         /* Prevent font size inflation */
         html {
           -moz-text-size-adjust: none;
           -webkit-text-size-adjust: none;
           text-size-adjust: none;
-          font-size: 16px;
+          font-size: 62.5%;
         }
 
         /* Remove default margin in favour of better control in authored CSS */
@@ -42,8 +49,10 @@ export function GlobalStyles() {
 
         /* Set core body defaults */
         body {
+          font-family: 'Montserrat', sans-serif;
           min-height: 100vh;
-          line-height: 1.5;
+          font-size: 1.6rem;
+          line-height: 1.6;
         }
 
         /* Set shorter line heights on headings and interactive elements */
@@ -69,6 +78,7 @@ export function GlobalStyles() {
         a:not([class]) {
           text-decoration-skip-ink: auto;
           color: currentColor;
+          text-decoration: none;
         }
 
         /* Make images easier to work with */
@@ -109,6 +119,14 @@ export function GlobalStyles() {
               minmax(5em, 1fr) repeat(12, minmax(50px, 125px))
               minmax(5em, 1fr);
           }
+        }
+
+        .main-layout {
+          margin: 0 auto;
+          display: grid;
+          grid-template-rows:
+            var(--headerHeight) calc(100vh - var(--headerHeight))
+            var(--footerHeight);
         }
       `}
     />
