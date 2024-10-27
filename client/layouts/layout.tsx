@@ -1,50 +1,12 @@
 import { GlobalStyles } from '../styles/GlobalStyles';
 import { css } from '@emotion/react';
-import HamburgerMenu from '../components/header/hamburger-menu';
-import { Hamburger } from '../components/header/hamburger';
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <>
-      <header
-        className="base-grid"
-        css={css`
-          grid-row: 1;
-          grid-column: 1 / -1;
-          background-color: red;
-        `}
-      >
-        <Hamburger
-          active={true}
-          setActive={() => {}}
-          position={`
-            grid-column: 2 / span2
-            grid-row: 1;
-            align-self: center;
-          `}
-        />
-        <nav
-          css={css`
-            /* display: flex;
-            justify-content: flex-end;
-            align-items: center;
-            grid-column: 2 / -2;
-            grid-row: 1; */
-
-            border: solid 1px salmon;
-            background: rgba(0, 100, 0, 0.3) !important;
-          `}
-        >
-          <ul
-            role="list"
-            css={css`
-              display: flex;
-              justify-content: flex-end;
-              gap: 2.4rem;
-              align-items: center;
-              text-decoration: none;
-            `}
-          >
+      <header className="base-grid" css={styles()}>
+        <nav css={css``}>
+          <ul role="list" css={css``}>
             <li>
               <a href="/">Home</a>
             </li>
@@ -62,6 +24,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       </header>
       <GlobalStyles />
       <main
+        className="base-grid"
         css={css`
           grid-row: 2;
         `}
@@ -79,4 +42,28 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       </footer>
     </>
   );
+}
+
+function styles() {
+  return css`
+    grid-row: 1;
+    grid-column: 1 / -1;
+    background-color: red;
+
+    nav {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      grid-column: 2 / -2;
+      grid-row: 1;
+    }
+
+    ul {
+      display: flex;
+      justify-content: flex-end;
+      gap: 2.4rem;
+      align-items: center;
+      text-decoration: none;
+    }
+  `;
 }
